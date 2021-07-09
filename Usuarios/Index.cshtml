@@ -1,0 +1,330 @@
+﻿
+
+@{
+    ViewBag.Title = "Mantenimiento Usuarios";
+
+}
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+<style>
+    fieldset.borderField {
+        border: 2px groove #f39c12 !important;
+        padding: 0 1.4em 1.4em 1.4em !important;
+        margin: 0 0 1.5em 0 !important;
+        box-shadow: 0px 0px 0px 0px #000;
+        border-radius: 5px;
+    }
+
+    legend.borderLeyend {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width: inherit;
+        padding: 0 10px;
+        border-bottom: none;
+    }
+</style>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>Mantenimiento Usuarios</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-flask"></i>Usuarios</a></li>
+            <li class="active">Mantenimiento Usuarios</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div style="float:left; padding:0% 1% 0 1%">
+                            <a href="~/Master/Index" title="Inicio (Alt + F1)"><center style="margin-left:25px;"><i class="fa fa-home" style="font-size:25px; color:#13D003"></i><br /><strong style="color:black">Home</strong></center></a>
+                        </div>
+                        <div style="float:left; padding:0% 1% 0 1%;" id="btnprenuevo">
+                            <a href="#" title="Nuevo"><center><i class="fa fa-plus" style="font-size:25px; color:#13D003"></i><br /><strong style="color:black">Nuevo</strong></center></a>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div id="verddd" style="display:none">
+                            <div class="col-md-4 col-lg-offset-4">
+                                <fieldset class="borderField">
+                                    <legend class="borderLeyend">Usuarios</legend>
+                                    <div class="col-md-12">
+                                        <div class="col-md-3">
+                                            <label>Nombres:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese los nombres" />
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-3">
+                                            <label>Apellidos:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese los Apellidos" />
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-3">
+                                            <label>Login:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="login" id="login" placeholder="Ingrese el Login" />
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-3">
+                                            <label>Password:</label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="password" id="password" placeholder="Ingrese el password" />
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-2 col-lg-offset-6" style="margin-top:1%" id="divButtonReg">
+                                            <center><button type="button" class="btn btn-success" title="Registrar (ALT + G)" id="btnRegistrar"><span class="fa fa-save"></span> Registrar</button></center>
+                                        </div>
+                                        <div class="col-md-2 col-lg-offset-6" style="margin-top:1%;display:none" id="divButtonEdi">
+                                            <center><button type="button" class="btn btn-success" title="Registrar (ALT + G)" id="btnEditar"><span class="fa fa-save"></span> Editar</button></center>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div id="TableAbrevia" class="box-body">
+                            <div class="col-xs-12 col-md-8 col-md-offset-2 table-responsive" style="padding-left:0px;">
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        <legend></legend>
+                                    </fieldset>
+                                </div>
+                                <table id="tblistagpo" class="table table-bordered table-striped" style="text-align:left;" >
+                                    <thead>
+                                        <tr class="headTabla" style="background-color:gray;">
+                                            <th width="2%" style="text-align:center">ID</th>
+                                            <th width="10%" style="text-align:center">Nombres</th>
+                                            <th width="4%" style="text-align:center">Apellidos</th>
+                                            <th width="4%" style="text-align:center">Login</th>
+                                            <th width="4%" style="text-align:center">Password</th>
+                                            <th width="4%" style="text-align:center">Fecha Creacion</th>
+                                            <th width="4%" style="text-align:center">Fecha Actualizacion</th>
+                                            <th width="4%" style="text-align:center">Estado</th>
+                                            <th width="4%" style="text-align:center"><i class='fa fa-pencil'></i> | <i class="fa fa-trash-o"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="llenadataa"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script>
+    var ggg = false;
+    var s_id = 0;
+    function editar(nombres,apellidos,login,password,iddd) {
+        s_id = iddd;
+        if (!ggg) {$("#verddd").toggle("slow");ggg = true;}
+        $("#nombres").val(nombres);
+        $("#apellidos").val(apellidos);
+        $("#login").val(login);
+        $("#password").val(password);
+        $("#divButtonEdi").fadeIn();
+        $("#divButtonReg").hide();
+    }
+    function eliminar(fererx) {
+        let users = new Object();
+        users.id = fererx;
+        users.nombres = " ";
+        users.apellidos = " ";
+        users.login = " ";
+        users.password = " ";
+        users.usu = 'ADMINISTRADOR';
+        users.estado = false;
+            $.ajax({
+                url: _urlBaseVg + "Usuarios/eliminarUsuarios",
+                type: "POST",
+                data: users,
+                success: function (i) {
+                    if (i == "si") {
+                        toastr.success("Se Elimino Correctamente");
+                        $("#nombres").val("");
+                        $("#apellidos").val("");
+                        $("#login").val("");
+                        $("#password").val("");
+                        llenarTabla();
+                    }
+                }
+            });
+    }
+        function activar(fererx) {
+              let users = new Object();
+             users.id = fererx;
+            users.nombres = " ";
+            users.apellidos = " ";
+            users.login = " ";
+            users.password = " ";
+             users.Usu = 'ADMINISTRADOR';
+             users.estado = true;
+            $.ajax({
+                url: _urlBaseVg + "Usuarios/activarUsuarios",
+                type: "POST",
+                data: users,
+                success: function (i) {
+                    if (i == "si") {
+                        toastr.success("Se Activo Correctamente");
+                        $("#nombres").val("");
+                        $("#apellidos").val("");
+                        $("#login").val("");
+                        $("#password").val("");
+                        llenarTabla();
+                    }
+                }
+            });
+    }
+    function llenarTabla() {
+        $('#tblistagpo').DataTable().destroy();
+        var HTMLbody = ``;
+        $.ajax({
+            url: _urlBaseVg + "Usuarios/listaUsuarios",
+            type: "GET",
+            success: function (response) {
+                a = response;
+                $.each(a, function (k, v) {
+                    let eli = "";
+                    let iconoestad = "";
+                    if (v.estado == true) {
+                        eli = `<a onclick='eliminar(${v.id})'><i class='fa fa-trash text-danger'></i></a>`;
+                        iconoestad = "<i class='fa fa-check-square-o'></i>";
+                    }
+                    else {
+                        eli = `<a onclick='activar(${v.id})'><i class='fa fa-plus text-success'></i></a>`;
+                        iconoestad = "<i class='fa fa-square-o'></i>";
+                    }
+                    HTMLbody += `<tr>
+                            <td>${v.id}</td>
+                            <td>${v.nombres}</td>
+                            <td>${v.apellidos}</td>
+                            <td>${v.login}</td>
+                            <td>${v.password}</td>
+                            <td>${v.creacion}</td>
+                            <td>${v.modificacion}</td>
+                            <td>${iconoestad}</td>
+                            <td class='text-center'><a onclick="editar('${v.nombres}','${v.apellidos}','${v.login}','${v.password}',${v.id})"><i class='fa fa-edit'></i></a>&nbsp;${eli}</td></tr>`;
+                })
+            },
+            async: false
+        })
+        $("#llenadataa").empty();
+        $("#llenadataa").append(HTMLbody);
+        $('#tblistagpo').DataTable({ fixedColumns: { leftColumns: 1, }, dom: 'frtp', fixedColumns: true, select: true, processing: true, info: false, pageLength: 10, responsive: true });
+    }
+    $(document).ready(function () {
+        llenarTabla();
+        $("#btnprenuevo").on("click", function () {
+            $("#nombres").val("");
+            $("#apellidos").val("");
+            $("#login").val("");
+            $("#password").val("");
+            $("#divButtonReg").fadeIn();
+            $("#divButtonEdi").hide();
+            if (!ggg) {
+                $("#verddd").toggle("slow");
+                ggg = !ggg;
+            }
+        });
+        $("#btnEditar").on("click", function () {
+            ggg = false;
+            $("#divButtonEdi").hide();
+            $("#verddd").toggle("slow");
+            $("#divButtonReg").fadeIn();
+            let users = new Object();
+            users.id = s_id;
+            users.nombres = $("#nombres").val();
+            users.apellidos = $("#apellidos").val();
+            users.login = $("#login").val();
+            users.password = $("#password").val();
+            users.usu = 'ADMINISTRADOR';
+            users.estado = true;
+            $.ajax({
+                url: _urlBaseVg + "Usuarios/editarUsuarios",
+                type: "POST",
+                data: users,
+                success: function (i) {
+                    if (i == "si") {
+                        toastr.success("Se Edito Correctamente");
+                        $("#nombres").val("");
+                        $("#apellidos").val("");
+                        $("#login").val("");
+                        $("#password").val("");
+                        llenarTabla();
+                    }
+                }
+            });
+        });
+        $("#btnRegistrar").on("click", function () {
+            let users = new Object();
+            users.id = 1;
+            users.nombres = $("#nombres").val();
+            users.apellidos = $("#apellidos").val();
+            users.login = $("#login").val();
+            users.password = $("#password").val();
+            users.usu = 'ADMINISTRADOR';
+            users.estado = true;
+            $.ajax({
+                url: _urlBaseVg + "Usuarios/registrarUsuarios",
+                type: "POST",
+                data: users,
+                success: function (i) {
+                    if (i == "si") {
+                        toastr.success("Se Registro Correctamente");
+                        $("#nombres").val("");
+                        $("#apellidos").val("");
+                        $("#login").val("");
+                        $("#password").val("");
+                        llenarTabla();
+                    }
+                }
+            });
+        });
+    })
+
+    var mensaje = "";
+    if (mensaje != "") {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "rtl": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 1000000000000,
+            "timeOut": 50000000000,
+            "extendedTimeOut": 10000000000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        if (mensaje == "1") { toastr.success("Se Registro Correctamente", "Aviso del sistema", "Aviso del sistema", { timeOut: 500000 }) }
+        else if (mensaje == "2") { toastr.success("Se Actualizo Con Exito", "Aviso del sistema", "Aviso del sistema", { timeOut: 500000 }) }
+        else if (mensaje == "3") { toastr.error("Error Datos No Validos", "Aviso del Sistema", 'Aviso del Sistema', { timeOut: 500000 }) }
+        else { toastr.error(mensaje, "Aviso del Sistema", 'Aviso del Sistema', { timeOut: 500000 }) }
+    }
+</script>
+

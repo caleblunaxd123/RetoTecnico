@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<script>
+     var _urlBaseVg = "@Url.Content("~")";
+</script>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Acceso Usuarios</title>
+    @Styles.Render("~/bundles/estilos")
+    @Scripts.Render("~/bundles/scriptjs")
+    
+    @*<script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>*@
+</head>
+<body style="background-color:papayawhip;">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Mantenimiento", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="background-color:#0066cc" class="no-print">
+            <div align="center" style="padding-bottom:5px;padding-top:10px">
+                <p style="margin:0;color:#fff">Copyright © - Todos los derechos reservados</p>
+                <p style="margin:0;color:#fff">LIMA PERÚ - 2021</p>
+            </div>
+        </footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>
